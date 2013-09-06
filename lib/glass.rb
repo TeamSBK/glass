@@ -1,4 +1,5 @@
 require 'glass/config'
+require 'glass/engine'
 require "glass/version"
 
 module Glass
@@ -6,5 +7,3 @@ module Glass
     block.call(Glass::Config)
   end
 end
-
-
