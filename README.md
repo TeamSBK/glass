@@ -23,9 +23,9 @@ And then run:
 This generator will install Glass. It will also add an initializer in `config/initializer/glass.rb`
 
     Glass.configure do |config|
-        config.models = ['User']
-        config.app_name = 'Test App'
-        config.format = :json
+      config.models = ['User']
+      config.app_name = 'Test App'
+      config.format = :json
     end
     
 It will modify your `app/assets/javascripts/application.js`, adding:
