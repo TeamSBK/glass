@@ -1,6 +1,6 @@
 # Glass
 
-TODO: Write a gem description
+A light-weight Rails Engine for API
 
 ## Installation
 
@@ -16,9 +16,31 @@ Or install it yourself as:
 
     $ gem install glass
 
+And then run:
+
+    rails generate glass:install
+    
+This generator will install Glass. It will also add an initializer in `config/initializer/glass.rb`
+
+    Glass.configure do |config|
+      config.models = ['User']
+      config.app_name = 'Test App'
+      config.format = :json
+    end
+    
+It will modify your `app/assets/javascripts/application.js`, adding:
+
+    //= require glass
+
+It will modify your `config/routes.rb`, adding:
+
+    mount Glass::Engine => '/api', as: 'glass'
+
 ## Usage
 
-TODO: Write usage instructions here
+Start the server:
+
+    rails server
 
 ## Contributing
 
