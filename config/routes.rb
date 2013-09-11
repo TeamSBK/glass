@@ -1,3 +1,6 @@
 Glass::Engine.routes.draw do
-  get '/main', to: 'main#index'
+  controller "main" do
+    get '/',        to: :index,     as: 'glass'
+    get '/config',  to: :config,    as: 'config'
+  end
 end

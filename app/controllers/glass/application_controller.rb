@@ -1,5 +1,5 @@
 module Glass
-  class ApplicationController < ::ApplicationController
+  class ApplicationController < ActionController::Base
 
   end
 end
