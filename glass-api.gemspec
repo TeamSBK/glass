@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'glass/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "glass"
+  spec.name          = "glass-api"
   spec.version       = Glass::VERSION
   spec.authors       = ["Adrian Peterson Co"]
   spec.email         = ["adrianpco@gmail.com"]
