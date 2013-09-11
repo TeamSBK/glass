@@ -1,4 +1,5 @@
-# coding: utf-8 lib = File.expand_path('../lib', __FILE__)
+# coding: utf-8
+lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'glass/version'
 
@@ -22,5 +23,4 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "rails"
   spec.add_dependency "json"
-  spec.add_dependencykk
 end
