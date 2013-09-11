@@ -1,3 +1,3 @@
 Glass::Engine.routes.draw do
-  get 'main', to: 'main#index'
+  get '/main', to: 'main#index'
 end
