@@ -1,5 +1,7 @@
 module Glass
   class MainController < Glass::ApplicationController
+    before_filter :setup_config
+
     def index
       respond_to do |format|
         format.html { }
@@ -13,5 +15,11 @@ module Glass
         format.json { render json: Glass::Config.to_json }
       end
     end
+
+  private
+    def setup_config
+      Glass::Config.setup
+    end
+
   end
 end
