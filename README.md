@@ -21,7 +21,7 @@ Enter <b> Glass </b> (\*slow clap\*)
 
 Add this line to your application's Gemfile:
 
-    gem 'glass'
+    gem 'glass-api', require: 'glass'
 
 And then execute:
 
@@ -29,12 +29,12 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install glass
+    $ gem install glass-api
 
 And then run:
 
     rails generate glass:install
-    
+
 This generator will install Glass. It will also add an initializer in `config/initializer/glass.rb`
 
     Glass.configure do |config|
@@ -42,7 +42,7 @@ This generator will install Glass. It will also add an initializer in `config/in
       config.app_name = 'Test App'
       config.format = :json
     end
-    
+
 It will modify your `app/assets/javascripts/application.js`, adding:
 
     //= require glass

@@ -1,7 +1,7 @@
 Glass.configure do |config|
 
   # Set the application name here
-  config.app_name = '<%= Rails.application.engine_name.titleize %>'
+  config.app_name = "<%= Rails.application.engine_name.titleize.chomp(' Application').gsub(' ','') %>"
 
   # Set the models that would be included
   # config.models = ['User']
