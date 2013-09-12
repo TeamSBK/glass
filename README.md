@@ -1,5 +1,7 @@
 # Glass
 
+[![Gem Version](https://badge.fury.io/rb/glass-api.png)](http://badge.fury.io/rb/glass-api)
+
 Glass is a your one-stop solution for a RESTFUL API. It is a lightweight Rails Engine that is built to do all the heavy lifting from serving an API in your Rails Application.
 
 ## Integrating Glass in your Rails Application
@@ -64,4 +66,14 @@ Start the server:
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+## License
+
+MIT. See [License] for more details.
+Copyright (c) 2013 TeamSBK. Powered by [Proudcloud] Inc.
+
+
+  [License]: http://github.com/TeamSBK/Glass/blob/master/LICENSE.txt
+  [Proudcloud]: http://www.proudcloud.net
+
 
