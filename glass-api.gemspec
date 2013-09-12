@@ -6,10 +6,10 @@ require 'glass/version'
 Gem::Specification.new do |spec|
   spec.name          = "glass-api"
   spec.version       = Glass::VERSION
-  spec.authors       = ["Adrian Peterson Co"]
-  spec.email         = ["adrianpco@gmail.com"]
-  spec.description   = %q{Glass}
-  spec.summary       = %q{Glassy}
+  spec.authors       = ["Adrian Peterson Co, Jaune Sarmiento, Robbie Marcelo"]
+  spec.email         = ["adrianpco@gmail.com, hawnecarlo@gmail.com, rbmrclo@hotmail.com"]
+  spec.description   = %q{Glass - A lightweight Rails Engine for an open RESTful API for models}
+  spec.summary       = %q{Glass is a your one-stop solution for a RESTFUL API. It is a lightweight Rails Engine that is built to do all the heavy lifting from serving an API in your Rails Application.}
   spec.homepage      = ""
   spec.license       = "MIT"
 
