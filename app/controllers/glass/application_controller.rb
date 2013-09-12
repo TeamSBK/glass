@@ -6,7 +6,7 @@ module Glass
   class ObjectNotFound < ::StandardError
   end
 
-  class ApplicationController < ActionController::Base
+  class ApplicationController < ::ApplicationController
 
   end
 end

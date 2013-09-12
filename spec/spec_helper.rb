@@ -1,10 +1,7 @@
-require 'rubygems'
-require 'bundler/setup'
-require 'rspec/rails'
-require 'factories'
-require 'database_cleaner'
-
+ENV["RAILS_ENV"] = 'test'
+require 'rspec'
 require 'glass'
+require 'rspec-expectations'
 
 RSpec.configure do |config|
   config.expect_with :rspec do |c|
@@ -12,22 +9,14 @@ RSpec.configure do |config|
   end
 
   config.include RSpec::Matchers
-  config.include Warden::Test::Helpers
+  config.include RSpec::Expectations
 
   config.before(:each) do
-    DatabaseCleaner.start
-    RailsAdmin::Config.reset
-    login_as User.create(
-      :email => "username@example.com",
-      :password => "password"
-    )
+    Glass::Config.reset
   end
 
   config.after(:each) do
-    Warden.test_reset!
-    DatabaseCleaner.clean
   end
-
 
 end
 
