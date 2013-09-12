@@ -14,7 +14,7 @@ module Glass
     end
 
     def create
-      object = @model.new(params[@params])
+      object = @model.new(params[@key])
 
       if object.save
         render json: object.to_json
@@ -26,7 +26,7 @@ module Glass
     def update
       object = @model.find(params[:id])
 
-      if object.update_attributes(params[@params])
+      if object.update_attributes(params[@key])
         render json: object.to_json
       else
         render json: object.errors, status: :unprocessable_entity
@@ -49,7 +49,7 @@ module Glass
     end
 
     def sanitize_params
-      @params = params[:object].downcase.to_sym
+      @key = params[:model_scope].to_sym
     end
   end
 end
