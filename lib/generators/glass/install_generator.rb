@@ -13,7 +13,7 @@ module Glass
       gsub_file "config/routes.rb", /mount Glass::Engine => \'api'\, as: :\'rails_admin\'/, ''
       route("mount Glass::Engine => '/api', as: :glass")
 
-      template "initializer.rb", 'config/initializers/glass.rb' unless initializer
+      template "initializer.erb", 'config/initializers/glass.rb' unless initializer
     end
   end
 end
