@@ -24,7 +24,7 @@ describe Glass::Config do
     end
 
     it 'creates #index' do
-      index_route = Glass::Config.routes[:pete]['routes']['Pete']['index']
+      index_route = Glass::Config.routes[:pete]['index']
 
       expect(index_route).to_not be_nil
     end

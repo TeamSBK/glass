@@ -37,12 +37,12 @@ module Glass
       end
 
       def return_routes(model_name, model_scope)
-        return "routes" => { "#{model_name}" => {
+        return {
             "index"   => { "type" => "get",   "path" => "/#{model_scope}"      },
             "show"    => { "type" => "get",   "path" => "/#{model_scope}/:id"  },
             "create"  => { "type" => "post",  "path" => "/#{model_scope}"      },
             "update"  => { "type" => "put",   "path" => "/#{model_scope}/:id"  },
-            "destroy" => { "type" => "delete","path" => "/#{model_scope}/:id"  } } }
+            "destroy" => { "type" => "delete","path" => "/#{model_scope}/:id"  } }
       end
 
       def setup
