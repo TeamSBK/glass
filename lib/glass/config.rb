@@ -10,32 +10,31 @@ module Glass
         @app_name = ''
         @models = []
         @format = :json
-        @routes = ''
+        @routes = {}
       end
 
       def models_with_routes
-        @models.map do |model|
-          { model => create_routes(model) }
+        @models.each do |model|
+          @routes[model.downcase.to_sym] = create_routes(model)
         end
       end
 
       def create_routes(model)
         model_scope = model.pluralize.downcase
+        model_name = model.capitalize.singularize
 
-        return { "routes" => {
-          "index"   => { "get"      => "/#{model_scope}"      },
-          "new"     => { "get"      => "/#{model_scope}"      },
-          "show"    => { "get"      => "/#{model_scope}/:id"  },
-          "edit"    => { "get"      => "/#{model_scope}/:id/edit" },
-          "create"  => { "post"     => "/#{model_scope}"      },
-          "update"  => { "put"      => "/#{model_scope}/:id"  },
-          "destroy" => { "delete"   => "/#{model_scope}/:id"  }
-        } }
+        return "routes" => { "#{model_name}" => {
+            "index"   => { "type" => "get",   "path" => "/#{model_scope}"      },
+            "show"    => { "type" => "get",   "path" => "/#{model_scope}/:id"  },
+            "create"  => { "type" => "post",  "path" => "/#{model_scope}"      },
+            "update"  => { "type" => "put",   "path" => "/#{model_scope}/:id"  },
+            "destroy" => { "type" => "delete","path" => "/#{model_scope}/:id"  } } }
       end
 
       def setup
-        @routes = models_with_routes
+        models_with_routes
       end
+
     end
     self.reset
   end
