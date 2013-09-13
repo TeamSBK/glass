@@ -1,24 +1,48 @@
 require 'spec_helper'
 
 describe Glass::Config do
-  before :each do
-    Glass::Config.models = %w{Pete Robbie Joko}
-  end
 
-  describe '#reset' do
-    it 'resets the configuration for Glass Module' do
-      # Uses the models attribute as sample basis for resetting
-      expect(Glass::Config.models).to eq (['Pete', 'Robbie', 'Joko'])
+  context 'default values' do
 
+    around :each do
       Glass::Config.reset
+    end
 
-      expect(Glass::Config.models).to eq ([])
+    describe '#reset' do
+
+      it 'responds to default app name' do
+        Glass::Config.app_name = 'Dummy'
+        expect(Glass::Config.app_name).to eq('')
+      end
+
+      it 'responds to default mounted route' do
+        Glass::Config.mounted_at = '/dummy'
+        expect(Glass::Config.mounted_at).to eq('/api')
+      end
+
+      it 'responds to default models' do
+        Glass::Config.models = ['Pete', 'Robbie', 'Joko']
+        expect(Glass::Config.models).to eq([])
+      end
+
+      it 'responds to default format' do
+        Glass::Config.format = :xml
+        expect(Glass::Config.format).to eq(:json)
+      end
+
+      it 'responds to default routes' do
+        Glass::Config.models = ['Pete', 'Robbie', 'Joko']
+        Glass::Config.routes = Glass::Config.setup
+        expect(Glass::Config.routes).to eq({})
+      end
+
     end
   end
 
   describe '#models_with_routes' do
 
     before :each do
+      Glass::Config.models = %w{Pete Robbie Joko}
       Glass::Config.models_with_routes
     end
 
@@ -91,5 +115,6 @@ describe Glass::Config do
     end
 
   end
+
 
 end
