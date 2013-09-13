@@ -1,8 +1,6 @@
 Glass::Engine.routes.draw do
-  controller "main" do
-    get '/',              to: :index,     as: 'glass'
-    get '/glass/config',  to: :config,    as: 'config'
-  end
+
+  root to: 'main#index'
 
   controller "api" do
     get     '/:model_scope',      to: :index,     as: 'index',    via: 'get'

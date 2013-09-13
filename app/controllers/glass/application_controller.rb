@@ -1,12 +1,12 @@
 module Glass
 
-  class ModelNotFound < ::StandardError
+ class ModelNotFound < ::StandardError
   end
 
   class ObjectNotFound < ::StandardError
   end
 
-  class ApplicationController < ::ApplicationController
+  class ApplicationController < ActionController::Base
 
   end
 end
