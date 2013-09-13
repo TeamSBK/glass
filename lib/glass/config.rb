@@ -4,10 +4,12 @@ module Glass
       attr_accessor :app_name
       attr_accessor :models
       attr_accessor :format
+      attr_accessor :mounted_at
       attr_accessor :routes
 
       def reset
         @app_name = ''
+        @mounted_at = '/api'
         @models = []
         @format = :json
         @routes = {}

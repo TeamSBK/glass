@@ -2,6 +2,7 @@ module Glass
   class ApiController < Glass::ApplicationController
     before_filter :sanitize_model
     before_filter :sanitize_params, only: [:create, :update]
+    before_filter :validate_model
 
     respond_to :json
 
@@ -50,6 +51,14 @@ module Glass
 
     def sanitize_params
       @key = params[:model_scope].to_sym
+    end
+
+    def validate_model
+      begin
+        @model
+      rescue => e
+        render json: "#{e}", status: :unprocessable_entity
+      end
     end
   end
 end
