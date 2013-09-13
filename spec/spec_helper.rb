@@ -7,6 +7,7 @@ RSpec.configure do |config|
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
+  config.filter_run_excluding broken: true
 
   config.include RSpec::Matchers
   config.include RSpec::Expectations

@@ -19,18 +19,25 @@ describe Glass::ApiController, type: :controller  do
 
   context "#create" do
     it "should be successful" do
-      pending "how is this?"
+      post '/api/users', {:name => "blabla"}
+      response.should be_successful
+      User.last.name.should == "blabla"
     end
   end
   context "#update" do
     it "should be successful" do
-      pending "how is this?"
+      put '/api/users/1', {:name => "changedname"}
+      response.should be_successful
+      User.find(1).name.should == "changedname"
     end
   end
 
   context "#destroy" do
     it "should be successful" do
-      pending "how is this?"
+      pending "how to do this?"
+      #delete :destroy, :id => "1"
+      #response.should be_successful
+      #User.find(1).should be_nil
     end
   end
 
