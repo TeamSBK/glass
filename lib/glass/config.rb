@@ -12,7 +12,6 @@ module Glass
         @models = []
         @format = :json
         @routes = {}
-        @registry = {}
       end
 
       def models_with_routes
@@ -47,11 +46,6 @@ module Glass
 
       def setup
         models_with_routes
-      end
-
-      def reset_model(model)
-        key = model.kind_of?(Class) ? model.name.to_sym : model.to_sym
-        @registry.delete(key)
       end
 
     end
