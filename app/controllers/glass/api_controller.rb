@@ -15,7 +15,7 @@ module Glass
     end
 
     def create
-      object = @model.new(params[@key])
+      object = @model.new(@new_hash)
 
       if object.save
         render json: object.to_json
@@ -27,7 +27,7 @@ module Glass
     def update
       object = @model.find(params[:id])
 
-      if object.update_attributes(params[@key])
+      if object.update_attributes(@new_hash)
         render json: object.to_json
       else
         render json: object.errors, status: :unprocessable_entity
@@ -50,7 +50,11 @@ module Glass
     end
 
     def sanitize_params
-      @key = params[:model_scope].to_sym
+      @new_hash = {}
+
+      params.each do |key, value|
+        @new_hash[key.to_sym] = value unless ignored_keys.include? key
+      end
     end
 
     def validate_model
@@ -59,6 +63,10 @@ module Glass
       rescue => e
         render json: "#{e}", status: :unprocessable_entity
       end
+    end
+
+    def ignored_keys
+      ['utf', 'authenticity_token', 'id', 'controller', 'action', 'model_scope']
     end
   end
 end
