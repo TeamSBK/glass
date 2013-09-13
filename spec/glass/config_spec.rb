@@ -4,36 +4,47 @@ describe Glass::Config do
 
   context 'default values' do
 
-    around :each do
-      Glass::Config.reset
-    end
-
     describe '#reset' do
 
       it 'responds to default app name' do
         Glass::Config.app_name = 'Dummy'
+        Glass::Config.reset
+
         expect(Glass::Config.app_name).to eq('')
+        expect(Glass::Config.app_name).to_not eq('Dummy')
       end
 
       it 'responds to default mounted route' do
         Glass::Config.mounted_at = '/dummy'
+        Glass::Config.reset
+
         expect(Glass::Config.mounted_at).to eq('/api')
+        expect(Glass::Config.mounted_at).to_not eq('/dummy')
       end
 
       it 'responds to default models' do
         Glass::Config.models = ['Pete', 'Robbie', 'Joko']
+        Glass::Config.reset
+
         expect(Glass::Config.models).to eq([])
+        expect(Glass::Config.models).to_not eq(['Pete', 'Robbie', 'Joko'])
       end
 
       it 'responds to default format' do
         Glass::Config.format = :xml
+        Glass::Config.reset
+
         expect(Glass::Config.format).to eq(:json)
+        expect(Glass::Config.format).to_not eq(:xml)
       end
 
       it 'responds to default routes' do
         Glass::Config.models = ['Pete', 'Robbie', 'Joko']
         Glass::Config.routes = Glass::Config.setup
+        Glass::Config.reset
+
         expect(Glass::Config.routes).to eq({})
+        expect(Glass::Config.routes).to_not eq(Glass::Config.setup)
       end
 
     end
