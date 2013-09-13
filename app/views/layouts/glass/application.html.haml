@@ -1,0 +1,9 @@
+!!! 5
+%html
+  %head
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}
+    %meta{:content => "NONE,NOARCHIVE", :name => "robots"}
+    = csrf_meta_tag
+    = stylesheet_link_tag "glass/glass.css", :media => :all
+  %body
+    = render template: 'glass/main/index'
