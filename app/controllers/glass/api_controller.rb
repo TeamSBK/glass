@@ -58,11 +58,7 @@ module Glass
     end
 
     def validate_model
-      begin
-        @model
-      rescue => e
-        render json: "#{e}", status: :unprocessable_entity
-      end
+      render json: "uninitialized constant #{@model}", status: :unprocessable_entity unless defined?(@model)
     end
 
     def ignored_keys
