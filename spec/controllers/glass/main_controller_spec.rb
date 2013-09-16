@@ -1,4 +1,4 @@
 require 'spec_helper'
 
-# describe Glass::MainController do
-# end
+describe Glass::MainController do
+end
