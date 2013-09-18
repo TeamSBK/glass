@@ -11,7 +11,11 @@ module Glass
     end
 
     def show
-      render json: @model.find(params[:id]).to_json
+      begin
+        render json: @model.find(params[:id]).to_json
+      rescue Exception => exception
+        render json: "#{exception}", status: :unprocessable_entity
+      end
     end
 
     def create
@@ -25,7 +29,11 @@ module Glass
     end
 
     def update
-      object = @model.find(params[:id])
+      begin
+        object = @model.find(params[:id])
+      rescue Exception => exception
+        render json: "#{exception}", status: :unprocessable_entity
+      end
 
       if object.update_attributes(@new_hash)
         render json: object.to_json
@@ -35,7 +43,11 @@ module Glass
     end
 
     def destroy
-      object = @model.find(params[:id])
+      begin
+        object = @model.find(params[:id])
+      rescue Exception => exception
+        render json: "#{exception}", status: :unprocessable_entity
+      end
 
       if object.delete
         render json: 'Successfully deleted'
