@@ -74,7 +74,7 @@ module Glass
     end
 
     def ignored_keys
-      ['utf', 'authenticity_token', 'id', 'controller', 'action', 'model_scope']
+      ['utf', 'authenticity_token', 'id', 'controller', 'action', 'model_scope', 'api']
     end
   end
 end
