@@ -274,9 +274,10 @@
 
 
   // Add Glass.js to window
-  window.addEventListener('load', function () {
-    var g = new Glass();
-    window['glass'] = g;
-  }, false);
+  //window.addEventListener('load', function () {
+    //var g = new Glass();
+    //window['glass'] = g;
+  //}, false);
+  window.glass = new Glass();
 
 }());
