@@ -57,7 +57,7 @@ Start the server:
 The following usage examples makes use of the Glass API given that you have a
 `User` model in your Rails app and you have configured the Glass gem to expose it.
 
-## Find
+###### Find
 
 Finds a list of records in a model with 'Foo' as name.
 
@@ -72,7 +72,7 @@ glass.User.find({
 ```
 
 
-## Find All
+###### Find All
 
 The following usage example finds all users.
 
@@ -85,7 +85,7 @@ glass.User.find(function (res, error) {
 ```
 
 
-## Create
+###### Create
 
 Create a new user record.
 
@@ -102,7 +102,7 @@ glass.User.create(user, function (res, error) {
 });
 ```
 
-## Update
+###### Update
 
 Update the user with `id == 1` and update its name to `Joko`.
 
@@ -121,7 +121,7 @@ glass.User.update(user, function (res, error) {
 ```
 
 
-## Delete
+###### Delete
 
 Delete a user record with `id == 1`.
 
