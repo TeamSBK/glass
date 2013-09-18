@@ -7,7 +7,7 @@ module Glass
     respond_to :json
 
     def index
-      render json: @model.all.to_json
+      render json: all_or_where(@model)
     end
 
     def show
@@ -76,5 +76,11 @@ module Glass
     def ignored_keys
       ['utf', 'authenticity_token', 'id', 'controller', 'action', 'model_scope', 'api']
     end
+
+    def all_or_where(model)
+      sanitize_params.present? ? model.where(@new_hash).to_json : model.all.to_json
+    end
+
   end
+
 end

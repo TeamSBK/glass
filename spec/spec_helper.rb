@@ -1,6 +1,8 @@
 ENV["RAILS_ENV"] = 'test'
 require 'simplecov'
 require 'coveralls'
+require 'rspec'
+require 'glass'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
   SimpleCov::Formatter::HTMLFormatter,
@@ -10,9 +12,6 @@ SimpleCov.start do
   add_filter "/spec/"
 end
 
-require 'rspec'
-require 'glass'
-require 'rspec-expectations'
 
 require File.expand_path("../test_app/config/environment", __FILE__)
 
@@ -22,7 +21,6 @@ RSpec.configure do |config|
   end
 
   config.include RSpec::Matchers
-  config.include RSpec::Expectations
 
   config.before(:each) do
     Glass::Config.reset
@@ -32,4 +30,3 @@ RSpec.configure do |config|
   end
 
 end
-

@@ -1,24 +1,30 @@
 require 'spec_helper'
 
-describe Glass::ApiController do
+describe Glass::ApiController, type: :controller do
 
-  describe "#index" do
+  context 'CRUD' do
 
-  end
+    describe "#index" do
+      it 'responses a json content' do
+        pending
+      end
+    end
 
-  describe "#show" do
+    describe "#show" do
+    end
 
-  end
 
-  describe "#create" do
+    describe "#create" do
 
-  end
+    end
 
-  describe "#update" do
+    describe "#update" do
 
-  end
+    end
 
-  describe "#destroy" do
+    describe "#destroy" do
+
+    end
 
   end
 
