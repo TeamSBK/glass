@@ -2,22 +2,13 @@
 
 [![Gem Version](https://badge.fury.io/rb/glass-api.png)](http://badge.fury.io/rb/glass-api)
 
-Glass is a your one-stop solution for a RESTFUL API. It is a lightweight Rails Engine that is built to do all the heavy lifting from serving an API in your Rails Application.
+Glass is a lightweight Rails Engine that is built to do all the heavy lifting from serving an API in your Rails Application.
 
-## Integrating Glass in your Rails Application
-
-You have built an awesome Rails application, and now you want to share the backend between your web application and other native applications. But you want it to be lightweight, RESTFUL, easy to set up, and has the built-in support for common conventions.
-
-Enter <b> Glass </b> (\*slow clap\*)
 
 ## Features
 
-* Create new data
-* Easily update data
-* Safely delete data
-* PENDING
-* PENDING
-* PENDING
+* CRUD for your models without a Controller
+* Integrates quickly for all client-side Javascript frameworks (Ember, Backbone, Angular)
 
 ## Installation
 
