@@ -1,5 +1,5 @@
 (function () {
-  
+
   // Glass core module
   var Glass = Glass = function () {
     this.init();
@@ -77,7 +77,7 @@
     if (async === undefined) async = true;
 
     // Append our CSRF token
-    url += ((url.indexOf('?') != -1) ? '&' : '?') + "csrf-token=" + this.token;
+    url += ((url.indexOf('?') != -1) ? '&' : '?') + "authenticity_token=" + this.token;
 
     var xhr = new XMLHttpRequest();
     xhr.open(type, url, async);
