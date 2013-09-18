@@ -53,6 +53,15 @@ It will modify your `config/routes.rb`, adding:
 
     mount Glass::Engine => '/api', as: 'glass'
 
+## Mongoid
+
+    class Model
+      include Mongoid::Document
+      def self.column_names
+        self.fields.collect { |field| field[0] }
+      end
+    end
+    
 ## Usage
 
 Start the server:

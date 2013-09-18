@@ -1,13 +1,17 @@
 module Glass
   class ApiController < Glass::ApplicationController
     before_filter :sanitize_model
-    before_filter :sanitize_params, only: [:create, :update]
+    before_filter :sanitize_params, only: [:create, :update, :index]
     before_filter :validate_model
 
     respond_to :json
 
     def index
-      render json: all_or_where(@model)
+      begin
+        render json: all_or_where(@model) # See Private Method Below
+      rescue Exception
+        render json: { invalid_parameters: @new_hash }, status: :unprocessable_entity
+      end
     end
 
     def show
@@ -78,7 +82,7 @@ module Glass
     end
 
     def all_or_where(model)
-      sanitize_params.present? ? model.where(@new_hash).to_json : model.all.to_json
+      @new_hash.present? ? model.where(@new_hash).to_json : model.all.to_json
     end
 
   end
