@@ -1,8 +1,5 @@
 (function () {
-
-  // No-operation function
-  var noop = function () {};
-
+  
   // Glass core module
   var Glass = Glass = function () {
     this.init();
@@ -39,7 +36,7 @@
   // Gets the CSRF token from the DOM
   Glass.prototype.getCsrfToken = function () {
     var token = document.querySelector('meta[name="csrf-token"]');
-    if (!token) throw new Error('Could not find.');
+    if (!token) throw new Error('Could not find CSRF token.');
     else token = token.getAttribute('content');
 
     return token;
@@ -79,6 +76,7 @@
     if (arguments.length < 3) throw new Error('Glass#doXHR is missing ' + (3 - arguments.length) + ' parameters.');
     if (async === undefined) async = true;
 
+    // Append our CSRF token
     url += ((url.indexOf('?') != -1) ? '&' : '?') + "csrf-token=" + this.token;
 
     var xhr = new XMLHttpRequest();
@@ -219,7 +217,7 @@
 
     if (options.hasOwnProperty('id')) {
       // Replace :id in our route with the value of id
-      var route = this.routes['delete'].path.replace(/:id/, options.id);
+      var route = this.routes['destroy'].path.replace(/:id/, options.id);
       delete options.id;
     }
     else {
@@ -275,7 +273,7 @@
   };
 
 
-  // Add Glass.js to window as the app name
+  // Add Glass.js to window
   window.addEventListener('load', function () {
     var g = new Glass();
     window['glass'] = g;
