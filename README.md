@@ -46,13 +46,13 @@ It will modify your `config/routes.rb`, adding:
 
 ## Usage
 
-# Ruby
+#### Ruby
 
 Start the server:
 
     rails server
     
-# Javascript
+#### Javascript
 
 The following usage examples makes use of the Glass API given that you have a
 `User` model in your Rails app and you have configured the Glass gem to expose it.
