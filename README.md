@@ -1,23 +1,18 @@
 # Glass
 
 [![Gem Version](https://badge.fury.io/rb/glass-api.png)](http://badge.fury.io/rb/glass-api)
+[![Build
+Status](https://travis-ci.org/TeamSBK/Glass.png?branch=master)](https://travis-ci.org/TeamSBK/Glass)
+[![Coverage
+Status](https://coveralls.io/repos/TeamSBK/Glass/badge.png?branch=master)](https://coveralls.io/r/TeamSBK/Glass?branch=master)
 
-Glass is a your one-stop solution for a RESTFUL API. It is a lightweight Rails Engine that is built to do all the heavy lifting from serving an API in your Rails Application.
+Glass is a lightweight Rails Engine that is built to do all the heavy lifting from serving an API in your Rails Application.
 
-## Integrating Glass in your Rails Application
-
-You have built an awesome Rails application, and now you want to share the backend between your web application and other native applications. But you want it to be lightweight, RESTFUL, easy to set up, and has the built-in support for common conventions.
-
-Enter <b> Glass </b> (\*slow clap\*)
 
 ## Features
 
-* Create new data
-* Easily update data
-* Safely delete data
-* PENDING
-* PENDING
-* PENDING
+* CRUD for your models without a Controller
+* Integrates quickly for all client-side Javascript frameworks (Ember, Backbone, Angular)
 
 ## Installation
 
@@ -64,9 +59,92 @@ It will modify your `config/routes.rb`, adding:
     
 ## Usage
 
+#### Ruby
+
 Start the server:
 
     rails server
+
+#### Javascript
+
+The following usage examples makes use of the Glass API given that you have a
+`User` model in your Rails app and you have configured the Glass gem to expose it.
+
+###### Find
+
+Finds a list of records in a model with 'Foo' as name.
+
+```javascript
+glass.User.find({
+  name: 'Foo'
+}, function (res, error) {
+  if (!error) {
+    // Do something with res
+  }
+});
+```
+
+
+###### Find All
+
+The following usage example finds all users.
+
+```javascript
+glass.User.find(function (res, error) {
+  if (!error) {
+    // Do something with res
+  }
+});
+```
+
+
+###### Create
+
+Create a new user record.
+
+```javascript
+var user = {
+  name: 'Jaune Sarmiento',
+  email: 'hello@jaunesarmiento.me'
+};
+
+glass.User.create(user, function (res, error) {
+  if (!error) {
+    // Do something with res
+  }
+});
+```
+
+###### Update
+
+Update the user with `id == 1` and update its name to `Joko`.
+
+```javascript
+// Given our create() function returns the user object with 1 as id
+var user = {
+  id: 1,
+  name: 'Joko'
+};
+
+glass.User.update(user, function (res, error) {
+  if (!error) {
+    // Do something with res
+  }
+});
+```
+
+
+###### Delete
+
+Delete a user record with `id == 1`.
+
+```javascript
+glass.User.delete(1, function (res, error) {
+  if (!error) {
+    // Do something with res
+  }
+});
+```
 
 ## Contributing
 
