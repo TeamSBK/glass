@@ -90,7 +90,7 @@ glass.User.find({
 The following usage example finds all users.
 
 ```javascript
-glass.User.find(function (res, error) {
+glass.User.findAll(function (res, error) {
   if (!error) {
     // Do something with res
   }
