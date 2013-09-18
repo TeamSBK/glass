@@ -9,8 +9,17 @@ module Glass
     def index
       begin
         render json: all_or_where(@model) # See Private Method Below
-      rescue Exception
-        render json: { invalid_parameters: @new_hash }, status: :unprocessable_entity
+      rescue
+
+        @unknown_params = [].tap do |keys|
+          @new_hash.each do |key, val|
+            unless @model.column_names.include? key.to_s
+              keys << [key => val]
+            end
+          end
+        end
+
+        render json: { unknown_parameters: @unknown_params.flatten }, status: :unprocessable_entity
       end
     end
 
