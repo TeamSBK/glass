@@ -1,6 +1,10 @@
 # Glass
 
 [![Gem Version](https://badge.fury.io/rb/glass-api.png)](http://badge.fury.io/rb/glass-api)
+[![Build
+Status](https://travis-ci.org/TeamSBK/Glass.png?branch=master)](https://travis-ci.org/TeamSBK/Glass)
+[![Coverage
+Status](https://coveralls.io/repos/TeamSBK/Glass/badge.png?branch=master)](https://coveralls.io/r/TeamSBK/Glass?branch=master)
 
 Glass is a lightweight Rails Engine that is built to do all the heavy lifting from serving an API in your Rails Application.
 
@@ -51,7 +55,7 @@ It will modify your `config/routes.rb`, adding:
 Start the server:
 
     rails server
-    
+
 #### Javascript
 
 The following usage examples makes use of the Glass API given that you have a
