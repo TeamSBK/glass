@@ -31,6 +31,7 @@
       while (i--) {
         m = config.models[i];
         Glass.prototype[m] = new this.Model(m, config.routes[m.toLowerCase()]);
+        Glass.prototype[m].token = this.token;
       }
     }).bind(this));
   };
@@ -39,6 +40,7 @@
   Glass.prototype.getCsrfToken = function () {
     var token = document.querySelector('meta[name="csrf-token"]');
     if (!token) throw new Error('Could not find.');
+    else token = token.getAttribute('content');
 
     return token;
   };
@@ -76,6 +78,8 @@
   Glass.prototype.doXHR = function (type, url, callback, async) {
     if (arguments.length < 3) throw new Error('Glass#doXHR is missing ' + (3 - arguments.length) + ' parameters.');
     if (async === undefined) async = true;
+
+    url += ((url.indexOf('?') != -1) ? '&' : '?') + "csrf-token=" + this.token;
 
     var xhr = new XMLHttpRequest();
     xhr.open(type, url, async);
@@ -130,7 +134,7 @@
     options || (options = {}); // providing no options means find all
 
     var queryParams = this.serialize(options),
-        path = '/api' + this.routes['show'].path,
+        path = '/api' + this.routes['index'].path,
         url = (queryParams.length > 0) ? path + '?' + queryParams : path;
 
     this.get(url, function (res, error) {
@@ -274,7 +278,7 @@
   // Add Glass.js to window as the app name
   window.addEventListener('load', function () {
     var g = new Glass();
-    window[(g.config.app_name).toLowerCase()] = g;
+    window['glass'] = g;
   }, false);
 
 }());
