@@ -1,4 +1,5 @@
 require 'glass/config'
+require 'glass/abstract_model'
 require 'glass/engine'
 require "glass/version"
 
