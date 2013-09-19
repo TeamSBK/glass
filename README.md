@@ -139,7 +139,7 @@ glass.User.update(user, function (res, error) {
 Delete a user record with `id == 1`.
 
 ```javascript
-glass.User.delete(1, function (res, error) {
+glass.User.delete({id: 1}, function (res, error) {
   if (!error) {
     // Do something with res
   }
