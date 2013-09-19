@@ -7,6 +7,6 @@ Glass::Engine.routes.draw do
     get     '/:model_scope/:id',  to: :show,      as: 'show',     via: 'get'
     post    '/:model_scope',      to: :create,    as: 'create',   via: 'post'
     put     '/:model_scope/:id',  to: :update,    as: 'update',   via: 'put'
-    delete  '/:model_scope/:id',  to: :delete,    as: 'destroy',  via: 'delete'
+    delete  '/:model_scope/:id',  to: :destroy,   as: 'destroy',  via: 'delete'
   end
 end

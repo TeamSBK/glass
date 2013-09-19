@@ -212,7 +212,7 @@
     });
   };
 
-  Model.prototype.delete = function(options, callback) {
+  Model.prototype.destroy = function(options, callback) {
     if (typeof options == 'function' || options === undefined) throw new Error("Model#delete() is missing 'options' parameter.");
 
     if (options.hasOwnProperty('id')) {
@@ -221,7 +221,7 @@
       delete options.id;
     }
     else {
-      throw new Error("Model#update() is missing 'options.id' parameter.");
+      throw new Error("Model#destroy() is missing 'options.id' parameter.");
     }
 
     var queryParams = this.serialize(options),

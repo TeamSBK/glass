@@ -63,7 +63,7 @@ module Glass
       end
 
       if object.delete
-        render json: 'Successfully deleted'
+        render json: object.to_json, status: 200
       else
         render json: 'Unable to delete entity', status: :unprocessable_entity
       end
