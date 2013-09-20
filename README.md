@@ -5,6 +5,7 @@
 Status](https://travis-ci.org/TeamSBK/Glass.png?branch=master)](https://travis-ci.org/TeamSBK/Glass)
 [![Coverage
 Status](https://coveralls.io/repos/TeamSBK/Glass/badge.png?branch=master)](https://coveralls.io/r/TeamSBK/Glass?branch=master)
+[![Code Climate](https://codeclimate.com/github/TeamSBK/Glass.png)](https://codeclimate.com/github/TeamSBK/Glass)
 
 Glass is a lightweight Rails Engine that is built to do all the heavy lifting from serving an API in your Rails Application.
 
