@@ -1,4 +1,5 @@
 require 'glass/config'
+require 'glass/define_orm'
 require 'glass/engine'
 require "glass/version"
 

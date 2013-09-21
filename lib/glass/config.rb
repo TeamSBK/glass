@@ -6,7 +6,7 @@ module Glass
       attr_accessor :format
       attr_accessor :mounted_at
       attr_accessor :routes
-      attr_accessor :registry
+      attr_accessor :adapter
 
       def reset
         @app_name = ''
