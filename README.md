@@ -69,7 +69,7 @@ Finds a list of records in a model with 'Foo' as name.
 ```javascript
 glass.User.find({
   name: 'Foo'
-}, function (res, error) {
+}, function (error, res) {
   if (!error) {
     // Do something with res
   }
@@ -82,7 +82,7 @@ glass.User.find({
 The following usage example finds all users.
 
 ```javascript
-glass.User.findAll(function (res, error) {
+glass.User.findAll(function (error, res) {
   if (!error) {
     // Do something with res
   }
@@ -100,7 +100,7 @@ var user = {
   email: 'hello@jaunesarmiento.me'
 };
 
-glass.User.create(user, function (res, error) {
+glass.User.create(user, function (error, res) {
   if (!error) {
     // Do something with res
   }
@@ -118,7 +118,7 @@ var user = {
   name: 'Joko'
 };
 
-glass.User.update(user, function (res, error) {
+glass.User.update(user, function (error, res) {
   if (!error) {
     // Do something with res
   }
@@ -131,7 +131,7 @@ glass.User.update(user, function (res, error) {
 Delete a user record with `id == 1`.
 
 ```javascript
-glass.User.delete({id: 1}, function (res, error) {
+glass.User.delete({id: 1}, function (error, res) {
   if (!error) {
     // Do something with res
   }
