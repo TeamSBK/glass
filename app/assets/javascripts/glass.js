@@ -45,13 +45,13 @@
   // Fires an XHR to get the config data from the server
   Glass.prototype.getConfig = function (callback) {
     // Get the config from the server
-    this.get('/api', function (res, error) {
+    this.get('/api', function (error, res) {
       if (!error) {
         var config = JSON.parse(res.response);
-        callback(config, error);
+        callback(error, config);
       }
       else {
-        callback(null, error);
+        callback(error, config);
       }
     }, false);
   };
@@ -135,7 +135,7 @@
         path = '/api' + this.routes['index'].path,
         url = (queryParams.length > 0) ? path + '?' + queryParams : path;
 
-    this.get(url, function (res, error) {
+    this.get(url, function (error, res) {
       if (!error) {
         var result = JSON.parse(res.response);
         if (callback) callback(result, null);
@@ -156,13 +156,13 @@
     var route = this.routes['show'].path.replace(/:id/, id),
         url = '/api' + route;
 
-    this.get(url, function (res, error) {
+    this.get(url, function (error, res) {
       if (!error) {
-        var result = JSON.parse(res, error);
-        if (callback) callback(res.body, null);
+        var result = JSON.parse(error, res);
+        if (callback) callback(null, res.body);
       }
       else {
-        if (callback) callback(null, error);
+        if (callback) callback(error, null);
       }
     });
   }
@@ -174,13 +174,13 @@
         path = '/api' + this.routes['create'].path,
         url = (queryParams.length > 0) ? path + '?' + queryParams : path;
 
-    this.post(url, function (res, error) {
+    this.post(url, function (error, res) {
       if (!error) {
         var result = JSON.parse(res.response);
-        if (callback) callback(result, null);
+        if (callback) callback(null, result);
       }
       else {
-        if (callback) callback(null, error);
+        if (callback) callback(error, null);
       }
     });
   };
@@ -201,13 +201,13 @@
         path = '/api' + route,
         url = (queryParams.length > 0) ? path + '?' + queryParams : path;
 
-    this.put(url, function (res, error) {
+    this.put(url, function (error, res) {
       if (!error) {
         var result = JSON.parse(res.response);
-        if (callback) callback(result, null);
+        if (callback) callback(null, result);
       }
       else {
-        if (callback) callback(null, error);
+        if (callback) callback(error, null);
       }
     });
   };
@@ -228,13 +228,13 @@
         path = '/api' + route,
         url = (queryParams.length > 0) ? path + '?' + queryParams : path;
 
-    this.delete(url, function (res, error) {
+    this.delete(url, function (error, res) {
       if (!error) {
         var result = JSON.parse(res.response);
-        if (callback) callback(result, null);
+        if (callback) callback(null, result);
       }
       else {
-        if (callback) callback(null, error);
+        if (callback) callback(error, null);
       }
     });
   };
@@ -273,11 +273,6 @@
   };
 
 
-  // Add Glass.js to window
-  //window.addEventListener('load', function () {
-    //var g = new Glass();
-    //window['glass'] = g;
-  //}, false);
   window.glass = new Glass();
 
 }());
