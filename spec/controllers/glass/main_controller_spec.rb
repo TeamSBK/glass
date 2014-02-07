@@ -18,6 +18,7 @@ describe Glass::MainController do
   describe "#index" do
 
     it "returns the Glass configuration" do
+      pending
     end
 
   end
